@@ -1,0 +1,35 @@
+{
+  "name": "mips-stimulator",
+  "version": "1.0.0",
+  "description": "A micro assembler and interpreter for MIPS",
+  "main": "src/index.js",
+  "bin": {
+    "mipc": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BytesClub/MIPS-Stimulator.git"
+  },
+  "keywords": [
+    "MIPS",
+    "Stimulator",
+    "Bytes-Club",
+    "Assembly"
+  ],
+  "license": "GPL-3.0",
+  "author": {
+    "name": "Bytes Club",
+    "email": "bytes-club@googlegroups.com",
+    "url": "https://bytesclub.github.io"
+  },
+  "contributors": {
+    "url": "https://github.com/BytesClub/ghb/graphs/contributors"
+  },
+  "bugs": {
+    "url": "https://github.com/BytesClub/MIPS-Stimulator/issues"
+  },
+  "homepage": "https://github.com/BytesClub/MIPS-Stimulator#readme"
+}
