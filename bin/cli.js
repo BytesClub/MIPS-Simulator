@@ -15,3 +15,14 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
+const Stimulator = require('../src');
+
+const infile = 'test/HelloWorld.s';
+
+const stimulator = new Stimulator({ file: infile });
+
+// console.log(stimulator);
+stimulator.load();
+let content = stimulator.getContent();
+console.log(content);
