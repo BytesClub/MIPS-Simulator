@@ -20,9 +20,9 @@ const Stimulator = require('../src');
 
 const infile = 'test/HelloWorld.s';
 
-const stimulator = new Stimulator({ file: infile });
+const stimulator = new Stimulator({ infile });
 
 // console.log(stimulator);
-stimulator.load();
-let content = stimulator.getContent();
-console.log(content);
+stimulator.compile();
+//let content = stimulator.getContent();
+//console.log(content);

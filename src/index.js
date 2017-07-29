@@ -16,20 +16,35 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const loader = require('../lib/loader');
-/*
-class Stimulator {
-    constructor({ infile, outfile, flag: { silent, warning } }) {
-        this.infile  = infile;
-        this.outfile = outfile;
-        this.flag    = flag;
+const Loader       = require('../lib/loader'),
+      Preprocessor = require('../lib/preprocessor');
+
+class Stimulator extends Object {
+    constructor(props) {
+        super(props);
+        const { infile, outfile, flag } = props;
+        if (typeof flag !== 'undefined') {
+            const { silent, warning, details } = flag;
+        }
+        if (typeof infile === 'undefined' || infile === null) {
+            let err = "No file parameter passed. Expected one!";
+            throw err;
+        }
+        this.loader     = new Loader({ file: infile, flag });
+        this.preprocess = new Preprocessor();
+        this.target     = infile;
+        this.object     = (typeof outfile === 'string') ? outfile : infile.replace('.s', '.o');
     }
 
     compile() {
-        return preprocessor(this.infile);
+        const { loader, target, preprocess } = this;
+        loader.load();
+        let content = loader.getContent();
+        preprocess.processContent(content);
+        let list = preprocess.getInstructions();
+        console.log(list.join(' '));
     }
 }
-*/
 
-module.exports = loader;
+module.exports = Stimulator; // ES5
 // export default Stimulator; // ES6
