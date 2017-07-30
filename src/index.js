@@ -16,8 +16,8 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const Loader       = require('../lib/loader'),
-      Preprocessor = require('../lib/preprocessor');
+const Loader = require('../lib/loader'),
+      Lexer  = require('../lib/lexer');
 
 class Stimulator extends Object {
     constructor(props) {
@@ -30,19 +30,19 @@ class Stimulator extends Object {
             let err = "No file parameter passed. Expected one!";
             throw err;
         }
-        this.loader     = new Loader({ file: infile, flag });
-        this.preprocess = new Preprocessor();
-        this.target     = infile;
-        this.object     = (typeof outfile === 'string') ? outfile : infile.replace('.s', '.o');
+        this.loader = new Loader({ file: infile, flag });
+        this.lexer  = new Lexer();
+        this.target = infile;
+        this.object = (typeof outfile === 'string') ? outfile : "asm.out";
     }
 
     compile() {
-        const { loader, target, preprocess } = this;
+        const { loader, target, lexer } = this;
         loader.load();
         let content = loader.getContent();
-        preprocess.processContent(content);
-        let list = preprocess.getInstructions();
-        console.log(list.join(' '));
+        lexer.processContent(content);
+        let list = lexer.getInstructions();
+        console.log(list.join('\n'));
     }
 }
 
