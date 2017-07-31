@@ -42,11 +42,14 @@ class Stimulator extends Object {
         const { loader, target, lexer, parser } = this;
         loader.load();
         let content = loader.getContent();
+        console.log("Found Content:");
+        console.log(content);
         lexer.processContent(content);
         let list = lexer.getInstructions();
+        console.log("Created Tokens:");
         list.map(item => console.log(item.line, item.tokens));
-        parser.generateTokens(list);
-        let tokens = parser.getTokens();
+        // parser.generateTokens(list);
+        // let tokens = parser.getTokens();
         //tokens.map((item) => console.log(item.line, item.token));
     }
 }
