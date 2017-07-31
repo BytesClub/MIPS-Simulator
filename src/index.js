@@ -42,7 +42,7 @@ class Stimulator extends Object {
         let content = loader.getContent();
         lexer.processContent(content);
         let list = lexer.getInstructions();
-        console.log(list.join('\n'));
+        list.map((item) => console.log(item.line, item.instruction));
     }
 }
 
