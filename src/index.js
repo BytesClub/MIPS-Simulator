@@ -17,7 +17,8 @@
  */
 
 const Loader = require('../lib/loader'),
-      Lexer  = require('../lib/lexer');
+      Lexer  = require('../lib/lexer'),
+      Parser = require('../lib/parser');
 
 class Stimulator extends Object {
     constructor(props) {
@@ -32,17 +33,21 @@ class Stimulator extends Object {
         }
         this.loader = new Loader({ file: infile, flag });
         this.lexer  = new Lexer();
+        this.parser = new Parser();
         this.target = infile;
         this.object = (typeof outfile === 'string') ? outfile : "asm.out";
     }
 
     compile() {
-        const { loader, target, lexer } = this;
+        const { loader, target, lexer, parser } = this;
         loader.load();
         let content = loader.getContent();
         lexer.processContent(content);
         let list = lexer.getInstructions();
-        list.map((item) => console.log(item.line, item.instruction));
+        list.map(item => console.log(item.line, item.tokens));
+        parser.generateTokens(list);
+        let tokens = parser.getTokens();
+        //tokens.map((item) => console.log(item.line, item.token));
     }
 }
 
