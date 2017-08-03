@@ -27,15 +27,16 @@ class Stimulator extends Object {
         if (typeof flag !== 'undefined') {
             const { silent, warning, details } = flag;
         }
-        if (typeof infile === 'undefined' || infile === null) {
-            let err = "No file parameter passed. Expected one!";
+        if (typeof infile === 'undefined' || infile === null
+            || typeof outfile === 'undefined' || outfile === null) {
+            let err = "No file parameter passed. Expected two!";
             throw err;
         }
         this.loader = new Loader({ file: infile, flag });
         this.lexer  = new Lexer();
         this.parser = new Parser();
         this.target = infile;
-        this.object = (typeof outfile === 'string') ? outfile : "asm.out";
+        this.object = outfile;
     }
 
     compile() {
@@ -50,9 +51,9 @@ class Stimulator extends Object {
         tokens.map(item => console.log(item.line, item.tokens));
         parser.parseTokens(tokens);
         let parse = parser.getParseTree();
-        console.log("SyntaxTree:");
+        console.log("\nSyntaxTree:");
         console.log(parse.SyntaxTree);
-        console.log("SymbolTable:");
+        console.log("\nSymbolTable:");
         console.log(parse.SymbolTable);
     }
 }
