@@ -34,8 +34,7 @@ class Stimulator extends Object {
         this.store  = new Store({ file: outfile, flag });
         this.lexer  = new Lexer();
         this.parser = new Parser();
-        this.target = infile;
-        this.object = outfile;
+        this.object = null;
     }
 
     compile() {
@@ -50,6 +49,7 @@ class Stimulator extends Object {
         // tokens.map(item => console.log(item.line, item.tokens));
         parser.parseTokens(tokens);
         let parse = parser.getParseTree();
+        this.object = parse;
         store.save(parse);
         // console.log("\nSyntaxTree:");
         // console.log(parse.SyntaxTree);
