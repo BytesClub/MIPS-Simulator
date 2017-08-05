@@ -25,9 +25,6 @@ class Stimulator extends Object {
     constructor(props) {
         super(props);
         const { infile, outfile, flag } = props;
-        if (typeof flag !== 'undefined') {
-            const { silent, warning, details } = flag;
-        }
         if (typeof infile === 'undefined' || infile === null
             || typeof outfile === 'undefined' || outfile === null) {
             let err = "No file parameter passed. Expected two!";

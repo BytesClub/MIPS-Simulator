@@ -22,7 +22,7 @@ const Stimulator = require('../src');
 
 const infile = 'test/HelloWorld.s', outfile = 'test/HelloWorld.out';
 
-const stimulator = new Stimulator({ infile, outfile });
+const stimulator = new Stimulator({ infile, outfile, flag: { details: true } });
 
 // console.log(stimulator);
 stimulator.compile();
