@@ -17,6 +17,7 @@
  */
 
 const Loader = require('../lib/loader'),
+      Store  = require('../lib/store'),
       Lexer  = require('../lib/lexer'),
       Parser = require('../lib/parser');
 
@@ -33,6 +34,7 @@ class Stimulator extends Object {
             throw err;
         }
         this.loader = new Loader({ file: infile, flag });
+        this.store  = new Store({ file: outfile, flag });
         this.lexer  = new Lexer();
         this.parser = new Parser();
         this.target = infile;
@@ -40,21 +42,22 @@ class Stimulator extends Object {
     }
 
     compile() {
-        const { loader, target, lexer, parser } = this;
+        const { loader, target, lexer, parser, store } = this;
         loader.load();
         let content = loader.getContent();
         //console.log("Found Content:");
         //console.log(content);
         lexer.processContent(content);
         let tokens = lexer.getInstructions();
-        console.log("Created Tokens:");
-        tokens.map(item => console.log(item.line, item.tokens));
+        // console.log("Created Tokens:");
+        // tokens.map(item => console.log(item.line, item.tokens));
         parser.parseTokens(tokens);
         let parse = parser.getParseTree();
-        console.log("\nSyntaxTree:");
-        console.log(parse.SyntaxTree);
-        console.log("\nSymbolTable:");
-        console.log(parse.SymbolTable);
+        store.save(parse);
+        // console.log("\nSyntaxTree:");
+        // console.log(parse.SyntaxTree);
+        // console.log("\nSymbolTable:");
+        // console.log(parse.SymbolTable);
     }
 }
 

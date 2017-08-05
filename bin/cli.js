@@ -20,7 +20,7 @@
 
 const Stimulator = require('../src');
 
-const infile = 'test/HelloWorld.s', outfile = 'something';
+const infile = 'test/HelloWorld.s', outfile = 'test/HelloWorld.out';
 
 const stimulator = new Stimulator({ infile, outfile });
 
