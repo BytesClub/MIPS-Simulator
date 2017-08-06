@@ -48,7 +48,7 @@ class Stimulator extends Object {
         parser.parseTokens(tokens);
         let parse = parser.getParseTree();
         this.object = parse;
-        //store.save(parse);
+        store.save(parse);
         vm.run(parse);
     }
 }
