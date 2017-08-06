@@ -1,6 +1,6 @@
 {
   "name": "mips-stimulator",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A micro assembler and interpreter for MIPS",
   "main": "src/index.js",
   "bin": {
