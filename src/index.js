@@ -19,7 +19,8 @@
 const Loader = require('../lib/loader'),
       Store  = require('../lib/store'),
       Lexer  = require('../lib/lexer'),
-      Parser = require('../lib/parser');
+      Parser = require('../lib/parser'),
+      VM     = require('../lib/vm');
 
 class Stimulator extends Object {
     constructor(props) {
@@ -34,27 +35,21 @@ class Stimulator extends Object {
         this.store  = new Store({ file: outfile, flag });
         this.lexer  = new Lexer();
         this.parser = new Parser();
+        this.vm     = new VM();
         this.object = null;
     }
 
     compile() {
-        const { loader, target, lexer, parser, store } = this;
+        const { loader, target, lexer, parser, vm, store } = this;
         loader.load();
         let content = loader.getContent();
-        //console.log("Found Content:");
-        //console.log(content);
         lexer.processContent(content);
         let tokens = lexer.getInstructions();
-        // console.log("Created Tokens:");
-        // tokens.map(item => console.log(item.line, item.tokens));
         parser.parseTokens(tokens);
         let parse = parser.getParseTree();
         this.object = parse;
-        store.save(parse);
-        // console.log("\nSyntaxTree:");
-        // console.log(parse.SyntaxTree);
-        // console.log("\nSymbolTable:");
-        // console.log(parse.SymbolTable);
+        //store.save(parse);
+        vm.run(parse);
     }
 }
 
