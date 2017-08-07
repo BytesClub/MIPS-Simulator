@@ -18,13 +18,11 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const Stimulator = require('../src');
+const Stimulator = require('../src'),
+      path       = require('path');
 
-const infile = 'test/HelloWorld.s', outfile = 'test/HelloWorld.out';
+const infile = path.join(__dirname, '../test/HelloWorld.s'), outfile = path.join(__dirname, '../test/HelloWorld.out');
 
-const stimulator = new Stimulator({ infile, outfile, flag: { details: true } });
+const stimulator = new Stimulator({ infile, outfile });
 
-// console.log(stimulator);
 stimulator.compile();
-//let content = stimulator.getContent();
-//console.log(content);

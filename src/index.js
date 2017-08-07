@@ -35,7 +35,7 @@ class Stimulator extends Object {
         this.store  = new Store({ file: outfile, flag });
         this.lexer  = new Lexer();
         this.parser = new Parser();
-        this.vm     = new VM();
+        this.vm     = new VM({ stdin: process.stdin, stdout: process.stdout });
         this.object = null;
     }
 
