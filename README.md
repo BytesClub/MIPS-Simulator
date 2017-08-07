@@ -1,6 +1,9 @@
 # MIPS Stimulator
 
 [![License: MIT](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses)
+[![Build Status](https://travis-ci.org/BytesClub/MIPS-Stimulator.svg?branch=master)](https://travis-ci.org/BytesClub/MIPS-Stimulator)
+[![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/mips-stimulator)
+[![Download](https://img.shields.io/npm/dt/mips-stimulator.svg)](https://yarnpkg.com/en/package/mips-stimulator)
 [![Issues](https://img.shields.io/github/issues/BytesClub/MIPS-Stimulator.svg)](https://github.com/BytesClub/MIPS-Stimulator/issues)
 [![Pull Request](https://img.shields.io/github/issues-pr/BytesClub/MIPS-Stimulator.svg)](https://github.com/BytesClub/MIPS-Stimulator/pulls)
 [![Releases](https://img.shields.io/github/release/BytesClub/MIPS-Stimulator.svg)](https://github.com/BytesClub/MIPS-Stimulator/releases)
@@ -9,6 +12,17 @@
 ---
 
 A micro assembler and interpreter written for MIPS Assembly Language for education purpose.
+
+## API Documentation
+* ### Installation:
+```
+$ npm i mips-stimulator -g
+```
+* ### Tesing
+```
+$ mipc
+```
+This should print "Hello World" in console.
 
 ## Legal Notice
 Copyright &copy;  2017  Progyan Bhattacharya, Bytes Club
