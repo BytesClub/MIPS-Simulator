@@ -6,7 +6,7 @@
 [![Download](https://img.shields.io/npm/dt/mips-stimulator.svg)](https://yarnpkg.com/en/package/mips-stimulator)
 [![Issues](https://img.shields.io/github/issues/BytesClub/MIPS-Stimulator.svg)](https://github.com/BytesClub/MIPS-Stimulator/issues)
 [![Pull Request](https://img.shields.io/github/issues-pr/BytesClub/MIPS-Stimulator.svg)](https://github.com/BytesClub/MIPS-Stimulator/pulls)
-[![Releases](https://img.shields.io/github/release/BytesClub/MIPS-Stimulator.svg)](https://github.com/BytesClub/MIPS-Stimulator/releases)
+[![Releases](https://img.shields.io/github/tag/BytesClub/MIPS-Stimulator.svg)](https://github.com/BytesClub/MIPS-Stimulator/releases)
 [![Mailing List](https://img.shields.io/badge/Mailing%20List-BytesClub-blue.svg)](mailto:bytes-club@googlegroups.com)
 [![gitter](https://badges.gitter.im/gitterHQ/gitterHQ.github.io.svg)](https://gitter.im/Bytes_Club/General)
 ---

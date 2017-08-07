@@ -16,35 +16,16 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const Stimulator = require('../src'),
-      path       = require('path'),
-      fs         = require('fs'),
-      exit       = process.exit;
+// Requiring test cases and their functions
+const HelloWorld = require('./HelloWorld');
 
-let infile   = path.join(__dirname, './HelloWorld/HelloWorld.s'),
-    outfile  = path.join(__dirname, './HelloWorld/HelloWorld.out'),
-    expfile  = path.join(__dirname, './HelloWorld/HelloWorld.exp'),
-    testfile = path.join(__dirname, './HelloWorld/HelloWorld.test');
+// Defining states for test
+const mapStateToTest = {
+    "Basic I/O": HelloWorld
+};
 
-const stdout     = fs.createWriteStream(testfile, { defaultEncoding: 'ASCII' }),
-      expected   = fs.readFileSync(expfile, 'ASCII'),
-      stimulator = new Stimulator({ infile, outfile, stdout });
-
-stimulator.compile();
-
-stdout.on('error', (err) => {
-    console.error(`Test for MIPS-Stimulator failed with error ${err}!`);
-    exit(1);
-});
-
-stdout.on('close', () => {
-    console.log("Finished executing. Collecting results...");
-    const output = fs.readFileSync(testfile, 'ASCII');
-    if (output === expected) {
-        console.log("Test for MIPS-Stimulator is successful!");
-        exit(0);
-    }  else {
-        console.log("Test for MIPS-Stimulator failed with wrong output!");
-        exit(1);
-    }
+// Test starts
+Object.keys(mapStateToTest).forEach((item, index) => {
+    console.log(`${index + 1}: Testing MIPS-Stimulator for functionality: ${item}\n`);
+    mapStateToTest[item]();
 });
