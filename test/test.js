@@ -27,5 +27,7 @@ const mapStateToTest = {
 // Test starts
 Object.keys(mapStateToTest).forEach((item, index) => {
     console.log(`${index + 1}: Testing MIPS-Stimulator for functionality: ${item}\n`);
-    mapStateToTest[item]();
+    if (mapStateToTest.hasOwnProperty(item)) {
+        mapStateToTest[item]();
+    }
 });

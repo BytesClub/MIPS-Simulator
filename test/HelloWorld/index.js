@@ -22,14 +22,13 @@ module.exports = function() {
           fs         = require('fs'),
           exit       = process.exit;
 
-    let infile   = path.join(__dirname, './HelloWorld.s'),
-        outfile  = path.join(__dirname, './HelloWorld.out'),
-        expfile  = path.join(__dirname, './HelloWorld.exp'),
-        testfile = path.join(__dirname, './HelloWorld.test');
-
-    const stdout     = fs.createWriteStream(testfile, { defaultEncoding: 'ASCII' }),
-          expected   = fs.readFileSync(expfile, 'ASCII'),
-          stimulator = new Stimulator({ infile, outfile, stdout });
+    let infile     = path.join(__dirname, './HelloWorld.s'),
+        outfile    = path.join(__dirname, './HelloWorld.out'),
+        expfile    = path.join(__dirname, './HelloWorld.exp'),
+        testfile   = path.join(__dirname, './HelloWorld.test'),
+        stdout     = fs.createWriteStream(`${testfile}`),
+        expected   = fs.readFileSync(`${expfile}`, 'ASCII'),
+        stimulator = new Stimulator({ infile, outfile, stdout });
 
     stimulator.compile();
 
@@ -40,7 +39,8 @@ module.exports = function() {
 
     stdout.on('close', () => {
         console.log("Finished executing. Collecting results...");
-        const output = fs.readFileSync(testfile, 'ASCII');
+        const output = fs.readFileSync(`${testfile}`, 'ASCII');
+
         if (output === expected) {
             console.log("Test for MIPS-Stimulator is successful!\n");
             exit(0);
