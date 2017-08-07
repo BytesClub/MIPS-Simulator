@@ -25,18 +25,19 @@ const Loader = require('../lib/loader'),
 class Stimulator extends Object {
     constructor(props) {
         super(props);
-        const { infile, outfile, flag } = props;
+        const { infile, outfile, stdin, stdout, flag } = props;
         if (typeof infile === 'undefined' || infile === null
             || typeof outfile === 'undefined' || outfile === null) {
             let err = "No file parameter passed. Expected two!";
             throw err;
         }
-        this.loader = new Loader({ file: infile, flag });
-        this.store  = new Store({ file: outfile, flag });
-        this.lexer  = new Lexer();
-        this.parser = new Parser();
-        this.vm     = new VM({ stdin: process.stdin, stdout: process.stdout });
-        this.object = null;
+        this.loader  = new Loader({ file: infile, flag });
+        this.store   = new Store({ file: outfile, flag });
+        this.lexer   = new Lexer();
+        this.parser  = new Parser();
+        this.vm      = new VM({ stdin, stdout });
+        this.object  = null;
+        this.compile = this.compile.bind(this);
     }
 
     compile() {
