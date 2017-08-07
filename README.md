@@ -2,6 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses)
 [![Build Status](https://travis-ci.org/BytesClub/MIPS-Stimulator.svg?branch=master)](https://travis-ci.org/BytesClub/MIPS-Stimulator)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9a79c4847cb844d281b14bc3d1542a36)](https://www.codacy.com/app/BytesClub/MIPS-Stimulator?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=BytesClub/MIPS-Stimulator&amp;utm_campaign=Badge_Grade)
 [![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/mips-stimulator)
 [![Download](https://img.shields.io/npm/dt/mips-stimulator.svg)](https://yarnpkg.com/en/package/mips-stimulator)
 [![Issues](https://img.shields.io/github/issues/BytesClub/MIPS-Stimulator.svg)](https://github.com/BytesClub/MIPS-Stimulator/issues)
@@ -18,11 +19,11 @@ A micro assembler and interpreter written for MIPS Assembly Language for educati
 ```
 $ npm i mips-stimulator -g
 ```
-* ### Tesing
+* ### Testing
 ```
 $ mipc
 ```
-This should print "Hello World" in console.
+This should print `Hello World` in console.
 
 ## Legal Notice
 Copyright &copy;  2017  Progyan Bhattacharya, Bytes Club
