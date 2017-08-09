@@ -21,7 +21,7 @@
 const Stimulator = require('../src'),
       path       = require('path');
 
-const infile = path.join(__dirname, '../test/HelloWorld/HelloWorld.s'), outfile = path.join(__dirname, '../test/HelloWorld/HelloWorld.out');
+const infile = path.join(__dirname, '../test/AddTwo/AddTwo.s'), outfile = path.join(__dirname, '../test/AddTwo/AddTwo.out');
 
 const stimulator = new Stimulator({ infile, outfile, stdin: process.stdin, stdout: process.stdout });
 

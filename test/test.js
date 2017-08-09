@@ -23,11 +23,12 @@ const Stimulator = require('../src'),
 
 // Defining states for test
 let mapStateToTest = {
-    "Basic I/O": "HelloWorld"
+    "Basic I/O": "HelloWorld",
+    "Arithmetic": "AddTwo"
 };
 
 // Testing function
-function test(testCase) {
+function test(index, testCase) {
     const infile     = path.join(__dirname, `./${testCase}/${testCase}.s`),
           outfile    = path.join(__dirname, `./${testCase}/${testCase}.out`),
           expfile    = path.join(__dirname, `./${testCase}/${testCase}.exp`),
@@ -45,18 +46,18 @@ function test(testCase) {
     stimulator.compile();
 
     stdout.on('error', (err) => {
-        console.error(`Test for MIPS-Stimulator failed with error ${err}!\n`);
+        console.error(`Test#${index} for MIPS-Stimulator failed with error ${err}!\n`);
         exit(1);
     });
 
     stdout.on('close', () => {
-        console.log("Finished execution. Collecting results...");
+        console.log(`Finished execution Build#${index}. Collecting results...`);
         const output = fs.readFileSync(`${testfile}`, 'ASCII');
 
         if (output === expected) {
-            console.log("Test for MIPS-Stimulator is successful!\n");
+            console.log(`Test#${index} for MIPS-Stimulator is successful!\n`);
         }  else {
-            console.error("Test for MIPS-Stimulator failed with wrong output!\n");
+            console.error(`Test#${index} for MIPS-Stimulator failed with wrong output!\n`);
             exit(1);
         }
     });
@@ -81,6 +82,7 @@ if (typeof Object.entries !== 'function') {
 
 // Test starts
 Object.entries(mapStateToTest).forEach((item, index) => {
-    console.log(`${index + 1}: Testing MIPS-Stimulator for functionality: ${item[0]}\n`);
-    test(item[1]);
+    let index_i = index + 1;
+    console.log(`${index_i}: Testing MIPS-Stimulator for functionality: ${item[0]}\n`);
+    test(index_i, item[1]);
 });
