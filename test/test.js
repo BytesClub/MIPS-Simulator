@@ -27,14 +27,14 @@ let mapStateToTest = {
 };
 
 // Testing function
-function  test(testCase) {
+function test(testCase) {
     const infile     = path.join(__dirname, `./${testCase}/${testCase}.s`),
           outfile    = path.join(__dirname, `./${testCase}/${testCase}.out`),
           expfile    = path.join(__dirname, `./${testCase}/${testCase}.exp`),
           testfile   = path.join(__dirname, `./${testCase}/${testCase}.test`);
 
     if (! (fs.existsSync(infile) && fs.existsSync(expfile))) {
-        console.error(`Error: Input file specified for testcase cannot be found!`);
+        console.error("Error: Input file specified cannot be found!");
         exit(1);
     }
 
@@ -60,6 +60,23 @@ function  test(testCase) {
             exit(1);
         }
     });
+}
+
+// Compatibility for old NODE.JS
+if (typeof Object.entries !== 'function') {
+    Object.prototype.entries = function (obj) {
+        if (typeof obj !== 'object') {
+            let err = "This method accepts one object, none given!";
+            throw err;
+        }
+        let entry = [];
+        Object.keys(obj).forEach(item => {
+            if (obj.hasOwnProperty(item)) {
+                entry.push([ item, obj[item] ]);
+            }
+        });
+        return entry;
+    };
 }
 
 // Test starts
