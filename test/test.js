@@ -81,8 +81,8 @@ if (typeof Object.entries !== 'function') {
 }
 
 // Test starts
-Object.entries(mapStateToTest).forEach((item, index) => {
-    let index_i = index + 1;
-    console.log(`${index_i}: Testing MIPS-Stimulator for functionality: ${item[0]}\n`);
-    test(index_i, item[1]);
+Object.entries(mapStateToTest).forEach((item, i) => {
+    const index = i + 1;
+    console.log(`${index}: Testing MIPS-Stimulator for functionality: ${item[0]}\n`);
+    test(index, item[1]);
 });
