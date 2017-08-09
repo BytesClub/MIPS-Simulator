@@ -35,7 +35,7 @@ function test(index, testCase) {
           testfile   = path.join(__dirname, `./${testCase}/${testCase}.test`);
 
     if (! (fs.existsSync(infile) && fs.existsSync(expfile))) {
-        console.error("Error: Input file specified cannot be found!");
+        console.error("Error: Input file specified cannot be found!\n");
         exit(1);
     }
 
@@ -46,18 +46,18 @@ function test(index, testCase) {
     stimulator.compile();
 
     stdout.on('error', (err) => {
-        console.error(`Test#${index} for MIPS-Stimulator failed with error ${err}!\n`);
+        console.error(`Test#${index} for MIPS-Stimulator failed with error ${err}!`);
         exit(1);
     });
 
     stdout.on('close', () => {
-        console.log(`Finished execution Build#${index}. Collecting results...`);
+        console.log(`\nFinished execution Build#${index}. Collecting results...`);
         const output = fs.readFileSync(`${testfile}`, 'ASCII');
 
         if (output === expected) {
-            console.log(`Test#${index} for MIPS-Stimulator is successful!\n`);
+            console.log(`Test#${index} for MIPS-Stimulator is successful!`);
         }  else {
-            console.error(`Test#${index} for MIPS-Stimulator failed with wrong output!\n`);
+            console.error(`Test#${index} for MIPS-Stimulator failed with wrong output!`);
             exit(1);
         }
     });
@@ -83,6 +83,6 @@ if (typeof Object.entries !== 'function') {
 // Test starts
 Object.entries(mapStateToTest).forEach((item, i) => {
     const index = i + 1;
-    console.log(`${index}: Testing MIPS-Stimulator for functionality: ${item[0]}\n`);
+    console.log(`\n${index}: Testing MIPS-Stimulator for functionality: ${item[0]}\n`);
     test(index, item[1]);
 });
