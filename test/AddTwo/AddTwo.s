@@ -23,11 +23,13 @@ main:		# Code starts here
 	li $s0, 12
 	li $s1, 23
 	add $s3, $s1, $s0
+    addi $s3, 10
 	li $v0, 4				# System call code for printing string is 4
 	la $a0, out_string			# Output string passed as argument
 	syscall					# This will call OS to print ($a0: String)
 	li $v0, 1				# System call code for printing integer is 1
-	move $a0, $s3				# Output integer moved to ($a0)
+    sub $a0, $s3, $s0
+	#move $a0, $s3				# Output integer moved to ($a0)
 	syscall					# This will call OS to print ($a0: Integer)
 	li $v0, 10				# System call code for exit is 10
 	syscall					# Program terminated by OS
