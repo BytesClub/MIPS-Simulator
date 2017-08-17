@@ -16,6 +16,8 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+"use strict";
+
 const Loader = require('../lib/loader'),
       Store  = require('../lib/store'),
       Lexer  = require('../lib/lexer'),

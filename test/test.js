@@ -16,6 +16,8 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+"use strict";
+
 const Stimulator = require('../src'),
       path       = require('path'),
       fs         = require('fs'),
