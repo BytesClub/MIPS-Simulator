@@ -21,9 +21,32 @@
 "use strict";
 
 const Stimulator = require('../src'),
-      path       = require('path');
+      path       = require('path'),
+      version    = require('../package.json').version,
+      cwd        = process.cwd(),
+      exit       = process.exit,
+      argv       = process.argv,
+      helpMsg =
 
-const infile = path.join(__dirname, '../test/HelloWorld/HelloWorld.s'), outfile = path.join(__dirname, '../test/HelloWorld/HelloWorld.out');
+`MIPS-Stimulator v${version} : Copyright (C)  2017  Progyan Bhattacharya, Bytes Club
+
+Usage: mipc <file>
+
+`;
+
+if (argv.length !== 3) {
+    console.log(helpMsg + "Missing file argument!");
+    exit(1);
+}
+
+let file = argv[2];
+if (file.indexOf(".s") == -1) {
+    console.log(helpMsg + "Source file should have .s extension!");
+    exit(2);
+}
+
+let infile = path.join(cwd, file),
+    outfile = path.join(cwd, file.replace(".s", ".out"));
 
 const stimulator = new Stimulator({ infile, outfile, stdin: process.stdin, stdout: process.stdout });
 
