@@ -1,13 +1,13 @@
 # MIPS Stimulator
 
 [![License: MIT](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses)
-[![Build Status](https://travis-ci.org/BytesClub/MIPS-Stimulator.svg?branch=master)](https://travis-ci.org/BytesClub/MIPS-Stimulator)
+[![Build Status](https://travis-ci.org/BytesClub/MIPS-Simulator.svg?branch=master)](https://travis-ci.org/BytesClub/MIPS-Simulator)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/9a79c4847cb844d281b14bc3d1542a36)](https://www.codacy.com/app/BytesClub/MIPS-Stimulator?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=BytesClub/MIPS-Stimulator&amp;utm_campaign=Badge_Grade)
 [![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/mips-stimulator)
 [![Download](https://img.shields.io/npm/dt/mips-stimulator.svg)](https://yarnpkg.com/en/package/mips-stimulator)
-[![Issues](https://img.shields.io/github/issues/BytesClub/MIPS-Stimulator.svg)](https://github.com/BytesClub/MIPS-Stimulator/issues)
-[![Pull Request](https://img.shields.io/github/issues-pr/BytesClub/MIPS-Stimulator.svg)](https://github.com/BytesClub/MIPS-Stimulator/pulls)
-[![Releases](https://img.shields.io/github/tag/BytesClub/MIPS-Stimulator.svg)](https://github.com/BytesClub/MIPS-Stimulator/releases)
+[![Issues](https://img.shields.io/github/issues/BytesClub/MIPS-Simulator.svg)](https://github.com/BytesClub/MIPS-Simulator/issues)
+[![Pull Request](https://img.shields.io/github/issues-pr/BytesClub/MIPS-Simulator.svg)](https://github.com/BytesClub/MIPS-Simulator/pulls)
+[![Releases](https://img.shields.io/github/tag/BytesClub/MIPS-Simulator.svg)](https://github.com/BytesClub/MIPS-Simulator/releases)
 [![Mailing List](https://img.shields.io/badge/Mailing%20List-BytesClub-blue.svg)](mailto:bytes-club@googlegroups.com)
 [![gitter](https://badges.gitter.im/gitterHQ/gitterHQ.github.io.svg)](https://gitter.im/Bytes_Club/General)
 ---
