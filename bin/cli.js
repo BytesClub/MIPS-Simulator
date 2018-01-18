@@ -28,7 +28,7 @@ const Stimulator = require('../src'),
       argv       = process.argv,
       helpMsg =
 
-`MIPS-Stimulator v${version} : Copyright (C)  2017  Progyan Bhattacharya, Bytes Club
+`MIPS-Stimulator v${version} : Copyright (C)  Progyan Bhattacharya, Bytes Club
 
 Usage: mipc <file>
 
