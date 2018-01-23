@@ -18,15 +18,16 @@
 
 "use strict";
 
-const Stimulator = require('../src'),
-      path       = require('path'),
-      fs         = require('fs'),
+const Stimulator = require("../src"),
+      path       = require("path"),
+      fs         = require("fs"),
       exit       = process.exit;
 
 // Defining states for test
 let mapStateToTest = {
     "Basic I/O": "HelloWorld",
-    "Arithmetic": "AddTwo"
+    "Arithmetic": "AddTwo",
+    "Branch": "EvenOdd"
 };
 
 // Testing function
@@ -42,19 +43,19 @@ function test(index, testCase) {
     }
 
     const stdout     = fs.createWriteStream(`${testfile}`),
-          expected   = fs.readFileSync(`${expfile}`, 'ASCII'),
+          expected   = fs.readFileSync(`${expfile}`, "ASCII"),
           stimulator = new Stimulator({ infile, outfile, stdout });
 
     stimulator.compile();
 
-    stdout.on('error', (err) => {
+    stdout.on("error", (err) => {
         console.error(`Test#${index} for MIPS-Stimulator failed with error ${err}!`);
         exit(1);
     });
 
-    stdout.on('close', () => {
+    stdout.on("close", () => {
         console.log(`\nFinished execution Build#${index}. Collecting results...`);
-        const output = fs.readFileSync(`${testfile}`, 'ASCII');
+        const output = fs.readFileSync(`${testfile}`, "ASCII");
 
         if (output === expected) {
             console.log(`Test#${index} for MIPS-Stimulator is successful!`);
@@ -66,9 +67,9 @@ function test(index, testCase) {
 }
 
 // Compatibility for old NODE.JS
-if (typeof Object.entries !== 'function') {
+if (typeof Object.entries !== "function") {
     Object.prototype.entries = function (obj) {
-        if (typeof obj !== 'object') {
+        if (typeof obj !== "object") {
             let err = "This method accepts one object, none given!";
             throw err;
         }
