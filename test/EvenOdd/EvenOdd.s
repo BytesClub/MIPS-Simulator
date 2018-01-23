@@ -23,16 +23,16 @@ od_string:	.asciiz	"\nThe Number is Odd\n"
 main:		# Code starts here
     li $s0, 52
     li $s1, 2
-    div $s1, $s0
+    div $s0, $s1
     bez $hi, even           # Check if remainder is zero
-	li $v0, 4				# System call code for printing string is 4
-	la $a0, od_string			# Output string passed as argument
-	syscall					# This will call OS to print ($a0)
-	li $v0, 10				# System call code for exit is 10
-	syscall					# Program terminated by OS
+    li $v0, 4               # System call code for printing string is 4
+    la $a0, od_string       # Output string passed as argument
+    syscall                 # This will call OS to print ($a0)
+    li $v0, 10              # System call code for exit is 10
+    syscall                 # Program terminated by OS
 even:
-    li $v0, 4				# System call code for printing string is 4
-    la $a0, ev_string			# Output string passed as argument
-    syscall					# This will call OS to print ($a0)
-    li $v0, 10				# System call code for exit is 10
-    syscall					# Program terminated by OS
+    li $v0, 4               # System call code for printing string is 4
+    la $a0, ev_string       # Output string passed as argument
+    syscall                 # This will call OS to print ($a0)
+    li $v0, 10              # System call code for exit is 10
+    syscall                 # Program terminated by OS
