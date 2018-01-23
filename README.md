@@ -17,7 +17,7 @@ A micro assembler and interpreter written for MIPS Assembly Language for educati
 ## API Documentation
 * ### Installation:
 ```
-$ npm i mips-stimulator -g
+$ npm i mips-simulator -g
 ```
 * ### Testing
 ```
