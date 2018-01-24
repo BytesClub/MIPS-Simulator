@@ -54,7 +54,8 @@ function test(index, testCase) {
     });
 
     stdout.on("close", () => {
-        console.log(`\nFinished execution Build#${index}. Collecting results...`);
+        console.log(`
+Finished execution Build#${index}. Collecting results...`);
         const output = fs.readFileSync(`${testfile}`, "ASCII");
 
         if (output === expected) {
@@ -86,6 +87,8 @@ if (typeof Object.entries !== "function") {
 // Test starts
 Object.entries(mapStateToTest).forEach((item, i) => {
     const index = i + 1;
-    console.log(`\n${index}: Testing MIPS-Stimulator for functionality: ${item[0]}\n`);
+    console.log(`
+${index}: Testing MIPS-Simulator for functionality: ${item[0]}
+    `);
     test(index, item[1]);
 });

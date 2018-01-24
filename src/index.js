@@ -18,18 +18,18 @@
 
 "use strict";
 
-const Loader = require('../lib/loader'),
-      Store  = require('../lib/store'),
-      Lexer  = require('../lib/lexer'),
-      Parser = require('../lib/parser'),
-      VM     = require('../lib/vm');
+const Loader = require("../lib/loader"),
+      Store  = require("../lib/store"),
+      Lexer  = require("../lib/lexer"),
+      Parser = require("../lib/parser"),
+      VM     = require("../lib/vm");
 
-class Stimulator extends Object {
+class Simulator extends Object {
     constructor(props) {
         super(props);
         const { infile, outfile, stdin, stdout, flag } = props;
-        if (typeof infile === 'undefined' || infile === null
-            || typeof outfile === 'undefined' || outfile === null) {
+        if (typeof infile === "undefined" || infile === null
+            || typeof outfile === "undefined" || outfile === null) {
             let err = "No file parameter passed. Expected two!";
             throw err;
         }
@@ -56,5 +56,5 @@ class Stimulator extends Object {
     }
 }
 
-module.exports = Stimulator; // ES5
-// export default Stimulator; // ES6
+module.exports = Simulator; // ES5
+// export default Simulator; // ES6
