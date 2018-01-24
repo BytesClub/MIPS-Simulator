@@ -2,9 +2,9 @@
 
 [![License: MIT](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses)
 [![Build Status](https://travis-ci.org/BytesClub/MIPS-Simulator.svg?branch=master)](https://travis-ci.org/BytesClub/MIPS-Simulator)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9a79c4847cb844d281b14bc3d1542a36)](https://www.codacy.com/app/BytesClub/MIPS-Stimulator?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=BytesClub/MIPS-Stimulator&amp;utm_campaign=Badge_Grade)
-[![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/mips-stimulator)
-[![Download](https://img.shields.io/npm/dt/mips-stimulator.svg)](https://yarnpkg.com/en/package/mips-stimulator)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9a79c4847cb844d281b14bc3d1542a36)](https://www.codacy.com/app/BytesClub/MIPS-Simulator?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=BytesClub/MIPS-Simulator&amp;utm_campaign=Badge_Grade)
+[![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/mips-simulator)
+[![Download](https://img.shields.io/npm/dt/mips-simulator.svg)](https://yarnpkg.com/en/package/mips-simulator)
 [![Issues](https://img.shields.io/github/issues/BytesClub/MIPS-Simulator.svg)](https://github.com/BytesClub/MIPS-Simulator/issues)
 [![Pull Request](https://img.shields.io/github/issues-pr/BytesClub/MIPS-Simulator.svg)](https://github.com/BytesClub/MIPS-Simulator/pulls)
 [![Releases](https://img.shields.io/github/tag/BytesClub/MIPS-Simulator.svg)](https://github.com/BytesClub/MIPS-Simulator/releases)
