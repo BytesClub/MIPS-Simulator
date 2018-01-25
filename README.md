@@ -1,4 +1,4 @@
-# MIPS Stimulator
+# MIPS Simulator
 
 [![License: MIT](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses)
 [![Build Status](https://travis-ci.org/BytesClub/MIPS-Simulator.svg?branch=master)](https://travis-ci.org/BytesClub/MIPS-Simulator)
@@ -12,18 +12,29 @@
 [![gitter](https://badges.gitter.im/gitterHQ/gitterHQ.github.io.svg)](https://gitter.im/Bytes_Club/General)
 ---
 
+![MIPS-Logo](http://codeprogyan.me/img/portfolio/mips.jpg)
+
 A micro assembler and interpreter written for MIPS Assembly Language for education purpose.
 
 ## API Documentation
 * ### Installation:
-```
-$ npm i mips-simulator -g
-```
+    * NPM:
+    ```
+    $ npm install mips-simulator --global
+    ```
+
+    * Yarn:
+    ```
+    $ yarn global add mips-simulator
+    ```    
+
 * ### Testing
 ```
-$ mipc
+$ mipc <assembly source file>
 ```
-This should print `Hello World` in console.
+
+* ### Report Bug
+If you find any mistake or error, please report [Issues](https://github.com/BytesClub/MIPS-Simulator/issues).
 
 ## Legal Notice
 Copyright &copy;  2017  Progyan Bhattacharya, Bytes Club
