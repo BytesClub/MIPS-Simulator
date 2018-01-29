@@ -23,12 +23,21 @@ const Stimulator = require("../src"),
       fs         = require("fs"),
       exit       = process.exit;
 
-// Defining states for test
-let mapStateToTest = {
-    "Basic I/O": "HelloWorld",
-    "Arithmetic": "AddTwo",
-    "Branch": "EvenOdd"
-};
+// Defining functionalities for test
+let mapStateToTest = [
+    {
+        "test": "Basic I/O",
+        "dest": "HelloWorld"
+    },
+    {
+        "test": "Arithmetic",
+        "dest": "AddTwo"
+    },
+    {
+        "test": "Branch",
+        "dest": "EvenOdd"
+    }
+];
 
 // Testing function
 function test(index, testCase) {
@@ -37,17 +46,20 @@ function test(index, testCase) {
           expfile    = path.join(__dirname, `./${testCase}/${testCase}.exp`),
           testfile   = path.join(__dirname, `./${testCase}/${testCase}.test`);
 
+    // Make sure files do exist
     if (! (fs.existsSync(infile) && fs.existsSync(expfile))) {
         console.error("Error: Input file specified cannot be found!\n");
         exit(1);
     }
 
-    const stdout     = fs.createWriteStream(`${testfile}`),
-          expected   = fs.readFileSync(`${expfile}`, "ASCII"),
+    // Build test programs
+    const stdout     = fs.createWriteStream(testfile),
+          expected   = fs.readFileSync(expfile, "ASCII"),
           stimulator = new Stimulator({ infile, outfile, stdout });
 
     stimulator.compile();
 
+    // Handle error and close event
     stdout.on("error", (err) => {
         console.error(`Test#${index} for MIPS-Stimulator failed with error ${err}!`);
         exit(1);
@@ -56,7 +68,7 @@ function test(index, testCase) {
     stdout.on("close", () => {
         console.log(`
 Finished execution Build#${index}. Collecting results...`);
-        const output = fs.readFileSync(`${testfile}`, "ASCII");
+        const output = fs.readFileSync(testfile, "ASCII");
 
         if (output === expected) {
             console.log(`Test#${index} for MIPS-Stimulator is successful!`);
@@ -67,28 +79,11 @@ Finished execution Build#${index}. Collecting results...`);
     });
 }
 
-// Compatibility for old NODE.JS
-if (typeof Object.entries !== "function") {
-    Object.prototype.entries = function (obj) {
-        if (typeof obj !== "object") {
-            let err = "This method accepts one object, none given!";
-            throw err;
-        }
-        let entry = [];
-        Object.keys(obj).forEach(item => {
-            if (obj.hasOwnProperty(item)) {
-                entry.push([ item, obj[item] ]);
-            }
-        });
-        return entry;
-    };
-}
-
-// Test starts
-Object.entries(mapStateToTest).forEach((item, i) => {
+// Test Begins
+mapStateToTest.forEach((item, i) => {
     const index = i + 1;
     console.log(`
-${index}: Testing MIPS-Simulator for functionality: ${item[0]}
+${index}: Testing MIPS-Simulator for functionality: ${item.test}
     `);
-    test(index, item[1]);
+    test(index, item.dest);
 });

@@ -40,7 +40,7 @@ if (argv.length !== 3) {
 }
 
 let file = argv[2];
-if (file.indexOf(".s") == -1) {
+if (file.indexOf(".s") === -1) {
     console.log(`${helpMsg}Source file should have .s extension!`);
     exit(2);
 }
