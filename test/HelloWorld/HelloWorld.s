@@ -14,14 +14,14 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-	.data	# Data declaration
+    .data                   # Data declaration
 # Output String
 out_string:	.asciiz	"\nHello World\n"
 
-	.text	# Assembly Instructions
-main:		# Code starts here
-	li $v0, 4				# System call code for printing string is 4
-	la $a0, out_string			# Output string passed as argument
-	syscall					# This will call OS to print ($a0)
-	li $v0, 10				# System call code for exit is 10
-	syscall					# Program terminated by OS
+    .text                   # Assembly Instructions
+main:                       # Code starts here
+    li $v0, 4               # System call code for printing string is 4
+    la $a0, out_string      # Output string passed as argument
+    syscall                 # This will call OS to print ($a0)
+    li $v0, 10              # System call code for exit is 10
+    syscall                 # Program terminated by OS

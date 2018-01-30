@@ -14,13 +14,13 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-	.data	# Data declaration
+    .data                   # Data declaration
 # Output Strings
 ev_string:	.asciiz	"\nThe Number is Even\n"
 od_string:	.asciiz	"\nThe Number is Odd\n"
 
-	.text	# Assembly Instructions
-main:		# Code starts here
+    .text                   # Assembly Instructions
+main:                       # Code starts here
     li $s0, 52
     li $s1, 2
     div $s0, $s1
