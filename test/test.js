@@ -18,7 +18,7 @@
 
 "use strict";
 
-const Stimulator = require("../src"),
+const Simulator = require("../src"),
       path       = require("path"),
       fs         = require("fs"),
       exit       = process.exit;
@@ -55,9 +55,10 @@ function test(index, testCase) {
     // Build test programs
     const stdout     = fs.createWriteStream(testfile),
           expected   = fs.readFileSync(expfile, "ASCII"),
-          stimulator = new Stimulator({ infile, outfile, stdout });
+          simulator = new Simulator({ infile, outfile, stdout });
 
-    stimulator.compile();
+    simulator.compile();
+    simulator.run();
 
     // Handle error and close event
     stdout.on("error", (err) => {

@@ -40,10 +40,11 @@ class Simulator extends Object {
         this.vm      = new VM({ stdin, stdout });
         this.object  = null;
         this.compile = this.compile.bind(this);
+        this.run     = this.run.bind(this);
     }
 
     compile() {
-        const { loader, target, lexer, parser, vm, store } = this;
+        const { loader, target, lexer, parser, store } = this;
         loader.load();
         let content = loader.getContent();
         lexer.processContent(content);
@@ -52,7 +53,11 @@ class Simulator extends Object {
         let parse = parser.getParseTree();
         this.object = parse;
         store.save(parse);
-        vm.run(parse);
+    }
+
+    run() {
+        const { vm, object } = this;
+        vm.run(object);
     }
 }
 

@@ -20,7 +20,7 @@
 
 "use strict";
 
-const Stimulator = require("../src"),
+const Simulator = require("../src"),
       path       = require("path"),
       version    = require("../package.json").version,
       cwd        = process.cwd(),
@@ -48,6 +48,7 @@ if (file.indexOf(".s") === -1) {
 let infile = path.join(cwd, file),
     outfile = path.join(cwd, file.replace(".s", ".out"));
 
-const stimulator = new Stimulator({ infile, outfile, stdin: process.stdin, stdout: process.stdout });
+const simulator = new Simulator({ infile, outfile, stdin: process.stdin, stdout: process.stdout });
 
-stimulator.compile();
+simulator.compile();
+simulator.run();
