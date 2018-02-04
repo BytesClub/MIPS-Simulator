@@ -28,11 +28,15 @@ class Simulator extends Object {
     constructor(props) {
         super(props);
         const { infile, outfile, stdin, stdout, flag } = props;
+
+        // House-keeping
         if (typeof infile === "undefined" || infile === null
             || typeof outfile === "undefined" || outfile === null) {
             let err = "No file parameter passed. Expected two!";
             throw err;
         }
+
+        // Member variables
         this.loader  = new Loader({ file: infile, flag });
         this.store   = new Store({ file: outfile, flag });
         this.lexer   = new Lexer();
@@ -44,19 +48,29 @@ class Simulator extends Object {
     }
 
     compile() {
-        const { loader, target, lexer, parser, store } = this;
+        const { loader, lexer, parser, store } = this;
+
+        // Load content
         loader.load();
-        let content = loader.getContent();
+        const content = loader.getContent();
+
+        // Lexical analysis
         lexer.processContent(content);
-        let tokens = lexer.getInstructions();
+        const tokens = lexer.getInstructions();
+
+        // Parsing of tokens
         parser.parseTokens(tokens);
-        let parse = parser.getParseTree();
+        const parse = parser.getParseTree();
+
+        // Saving AST
         this.object = parse;
         store.save(parse);
     }
 
     run() {
         const { vm, object } = this;
+
+        // Run AST in VM
         vm.run(object);
     }
 }
