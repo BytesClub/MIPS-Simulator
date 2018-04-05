@@ -12,7 +12,7 @@
 [![gitter](https://badges.gitter.im/gitterHQ/gitterHQ.github.io.svg)](https://gitter.im/Bytes_Club/General)
 ---
 
-![MIPS-Logo](http://codeprogyan.me/img/portfolio/mips.jpg)
+![MIPS-Logo](https://progyan1997.github.io/img/portfolio/mips.jpg)
 
 A micro assembler and interpreter written for MIPS Assembly Language for education purpose.
 
