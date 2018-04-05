@@ -36,6 +36,10 @@ let mapStateToTest = [
     {
         "test": "Branch",
         "dest": "EvenOdd"
+    },
+    {
+        "test": "Load-Store",
+        "dest": "LoadStore"
     }
 ];
 
