@@ -1,6 +1,6 @@
 {
   "name": "mips-simulator",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "A micro assembler and interpreter for MIPS",
   "main": "src/index.js",
   "bin": {
