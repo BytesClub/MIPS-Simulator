@@ -1,13 +1,17 @@
 {
   "name": "mips-simulator",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A micro assembler and interpreter for MIPS",
   "main": "src/index.js",
   "bin": {
     "mipc": "bin/cli.js"
   },
   "scripts": {
-    "test": "node test/test.js"
+    "test": "node test/test.js",
+    "lint:bin": "eslint bin/",
+    "lint:lib": "eslint lib/",
+    "lint:src": "eslint src/",
+    "lint": "npm run lint:bin && npm run lint:lib && npm run lint:src"
   },
   "repository": {
     "type": "git",
