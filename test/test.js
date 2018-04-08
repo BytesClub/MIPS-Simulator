@@ -18,30 +18,10 @@
 
 "use strict";
 
-const Simulator = require("../src"),
-      path       = require("path"),
-      fs         = require("fs"),
-      exit       = process.exit;
-
-// Defining functionalities for test
-let mapStateToTest = [
-    {
-        "test": "Basic I/O",
-        "dest": "HelloWorld"
-    },
-    {
-        "test": "Arithmetic",
-        "dest": "AddTwo"
-    },
-    {
-        "test": "Branch",
-        "dest": "EvenOdd"
-    },
-    {
-        "test": "Load-Store",
-        "dest": "LoadStore"
-    }
-];
+const Simulator      = require("../src"),
+      mapStateToTest = require("./cases"),
+      path           = require("path"),
+      fs             = require("fs");
 
 // Testing function
 function test(index, testCase) {
@@ -53,33 +33,35 @@ function test(index, testCase) {
     // Make sure files do exist
     if (! (fs.existsSync(infile) && fs.existsSync(expfile))) {
         console.error("Error: Input file specified cannot be found!\n");
-        exit(1);
+        process.exit(1);
     }
 
     // Build test programs
     const stdout     = fs.createWriteStream(testfile),
           expected   = fs.readFileSync(expfile, "ASCII"),
-          simulator = new Simulator({ infile, outfile, stdout });
+          simulator  = new Simulator({ infile, outfile, stdout });
 
     simulator.compile();
     simulator.run();
 
     // Handle error and close event
     stdout.on("error", (err) => {
-        console.error(`Test#${index} for MIPS-Stimulator failed with error ${err}!`);
-        exit(1);
+        console.error(`Test#${index} for MIPS-Stimulator failed with` +
+            ` error ${err}!`);
+        process.exit(1);
     });
 
     stdout.on("close", () => {
-        console.log(`
-Finished execution Build#${index}. Collecting results...`);
+        console.log(`\nFinished execution Build#${index}.` +
+            " Collecting results...");
         const output = fs.readFileSync(testfile, "ASCII");
 
         if (output === expected) {
             console.log(`Test#${index} for MIPS-Stimulator is successful!`);
         }  else {
-            console.error(`Test#${index} for MIPS-Stimulator failed with wrong output!`);
-            exit(1);
+            console.error(`Test#${index} for MIPS-Stimulator failed with` +
+                " wrong output!");
+            process.exit(1);
         }
     });
 }
@@ -87,8 +69,7 @@ Finished execution Build#${index}. Collecting results...`);
 // Test Begins
 mapStateToTest.forEach((item, i) => {
     const index = i + 1;
-    console.log(`
-${index}: Testing MIPS-Simulator for functionality: ${item.test}
-    `);
+    console.log(`\n${index}: Testing MIPS-Simulator for functionality:` +
+        ` ${item.test}\n`);
     test(index, item.dest);
 });

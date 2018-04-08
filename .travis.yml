@@ -14,12 +14,15 @@ addons:
       - g++-4.8
 cache:
   - yarn: true
+  - eslint: true
   - node_modules
 branches:
   only:
     - master
 install:
-  - npm install --ignore-scripts
+  - npm install eslint
   - npm link
+before_script:
+  - npm run lint
 script:
   - npm test

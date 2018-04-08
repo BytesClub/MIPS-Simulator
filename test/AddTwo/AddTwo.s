@@ -23,7 +23,7 @@ main:                       # Code starts here
     li $s0, 12
     li $s1, 23
     add $s3, $s1, $s0
-    addi $s3, 10
+    addi $s3, $s3, 10
     li $v0, 4               # System call code for printing string is 4
     la $a0, out_string      # Output string passed as argument
     syscall                 # This will call OS to print ($a0: String)

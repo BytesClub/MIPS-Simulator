@@ -32,7 +32,7 @@ class Simulator extends Object {
         // House-keeping
         if (typeof infile === "undefined" || infile === null
             || typeof outfile === "undefined" || outfile === null) {
-            let err = "No file parameter passed. Expected two!";
+            const err = "No file parameter passed. Expected two!";
             throw err;
         }
 
@@ -75,5 +75,4 @@ class Simulator extends Object {
     }
 }
 
-module.exports = Simulator; // ES5
-// export default Simulator; // ES6
+module.exports = Simulator;

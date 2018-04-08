@@ -20,10 +20,11 @@
 
 "use strict";
 
-const Simulator = require("../src"),
+const Simulator  = require("../src"),
       path       = require("path"),
-      version    = require("../package.json").version,
-      cwd        = process.cwd(),
+      version    = require("../package.json").version;
+
+const cwd        = process.cwd(),
       exit       = process.exit,
       argv       = process.argv,
       helpMsg =
@@ -39,16 +40,21 @@ if (argv.length !== 3) {
     exit(1);
 }
 
-let file = argv[2];
+const file = argv[2];
 if (file.indexOf(".s") === -1) {
     console.error(`${helpMsg}Source file should have .s extension!`);
     exit(2);
 }
 
-let infile = path.join(cwd, file),
-    outfile = path.join(cwd, file.replace(".s", ".out"));
+const infile = path.join(cwd, file),
+      outfile = path.join(cwd, file.replace(".s", ".out"));
 
-const simulator = new Simulator({ infile, outfile, stdin: process.stdin, stdout: process.stdout });
+const simulator = new Simulator({
+    infile,
+    outfile,
+    stdin: process.stdin,
+    stdout: process.stdout
+});
 
 simulator.compile();
 simulator.run();

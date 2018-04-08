@@ -20,7 +20,7 @@ main:                       # Code starts here
     li $t2, 25              # Target address for storing is 25
     sw $t1, $t2, 0          # Store data in specified memory address
     li $v0, 1               # System call code for printing integer is 1
-    lw $a0, $t2             # Load data from target address (25)
+    lw $a0, $t2, 0          # Load data from target address (25)
     syscall                 # This will call OS to print ($a0)
     li $v0, 10              # System call code for exit is 10
     syscall                 # Program terminated by OS

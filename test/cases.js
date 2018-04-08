@@ -1,5 +1,5 @@
 /*
- *  MIPS-Stimulator : types.js [Checks for data types]
+ *  MIPS-Stimulator : cases.js [Test cases for MIPS-Stimulator]
  *  Copyright (C)  2017  Progyan Bhattacharya, Bytes Club
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -18,26 +18,23 @@
 
 "use strict";
 
-const checkType = (token, type) => {
-    const LabelRegex    = /\w+:/i,
-          RegisterRegex = /\$\w+/;
-
-    switch (type) {
-        case "label": {
-            return LabelRegex.test(token);
-        }
-        case "Label": {
-            return token.trim().length > 0;
-        }
-        case "Integer": {
-            return !isNaN(Number(token));
-        }
-        case "Register": {
-            return RegisterRegex.test(token);
-        }
-        default:
-            return false;
+const mapStateToTest = [
+    {
+        "test": "Basic I/O",
+        "dest": "HelloWorld"
+    },
+    {
+        "test": "Arithmetic",
+        "dest": "AddTwo"
+    },
+    {
+        "test": "Branch",
+        "dest": "EvenOdd"
+    },
+    {
+        "test": "Load-Store",
+        "dest": "LoadStore"
     }
-};
+];
 
-module.exports = checkType;
+module.exports = mapStateToTest;
