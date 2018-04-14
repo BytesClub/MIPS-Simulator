@@ -43,7 +43,7 @@ if (argv.length !== 3) {
 const file = argv[2];
 if (file.indexOf(".s") === -1) {
     console.error(`${helpMsg}Source file should have .s extension!`);
-    exit(2);
+    exit(1);
 }
 
 const infile = path.join(cwd, file),

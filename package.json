@@ -1,6 +1,6 @@
 {
   "name": "mips-simulator",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "A micro assembler and interpreter for MIPS",
   "main": "src/index.js",
   "bin": {
@@ -39,6 +39,8 @@
   "bugs": {
     "url": "https://github.com/BytesClub/MIPS-Simulator/issues"
   },
-  "man": [],
+  "man": [
+    "./man/mipc.1"
+  ],
   "homepage": "https://github.com/BytesClub/MIPS-Stimulator#readme"
 }
