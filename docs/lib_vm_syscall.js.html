@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: lib/types.js</title>
+    <title>JSDoc: Source: lib/vm/syscall.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: lib/types.js</h1>
+    <h1 class="page-title">Source: lib/vm/syscall.js</h1>
 
     
 
@@ -27,7 +27,7 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/*
- *  MIPS-Simulator : types.js [Checks for data types]
+ *  MIPS-Stimulator : syscall.js [Interrupt Handler submodule for VM]
  *  Copyright (C)  2017  Progyan Bhattacharya, Bytes Club
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -46,40 +46,48 @@
 
 "use strict";
 
-/** function: checkType
- * @desc Type Checking of Token against Given Type Definition
- * @param  {string} token - Token to be Parsed
- * @param  {string} type  - Data Type Referred by Token
- * @return {boolean} True iff Token is of Valid Data Type
+
+/** function: syscall
+ * @desc Performs Kernel System Call Inside Virtual Machine
+ * @param {Number} line - Index of The Instrcution
  */
-const checkType = (token, type) => {
-    if (typeof type !== "string") {
-        throw new TypeError("type is expected to be a string.");
-    }
-
-    const LabelRegex    = /\w+:/i,
-          RegisterRegex = /\$\w+/;
-
-    switch (type) {
-        case "label": {
-            return LabelRegex.test(token);
+const syscall = function (line) {
+    const { stdout } = this;
+    const flagVariable = Number(this.valueFromRegister("$v0"));
+    switch (flagVariable) {
+        case 1: {
+            const value = Number(this.valueFromRegister("$a0"));
+            if (isNaN(value)) {
+                console.error(`Type Error: Expected integer at ${line},` +
+                    " recieved something else!");
+                process.exit(4);
+            } else {
+                stdout.write(value.toString());
+            }
+            break;
         }
-        case "Label": {
-            return token.trim().length > 0;
+        case 4: {
+            stdout.write(this.valueFromRegister("$a0"),
+                this.encodeFromRegister("$a0"));
+            break;
         }
-        case "Integer": {
-            return !isNaN(Number(token));
+        case 10: {
+            this.shouldRun = false;
+            if (stdout === process.stdout) {
+                process.exit(0);
+            } else {
+                stdout.end(() => stdout.on("end", () => process.exit(0) ));
+            }
+            break;
         }
-        case "Register": {
-            return RegisterRegex.test(token);
-        }
-        default: {
-            throw new ValueError("invalid type specified.")
-        }
+        default:
+            console.error("Value Error: Failed to execute," +
+                " terminating program...");
+            process.exit(4);
     }
 };
 
-module.exports = checkType;
+module.exports = syscall;
 </code></pre>
         </article>
     </section>

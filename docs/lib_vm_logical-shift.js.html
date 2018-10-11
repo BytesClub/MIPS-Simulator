@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: lib/types.js</title>
+    <title>JSDoc: Source: lib/vm/logical-shift.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: lib/types.js</h1>
+    <h1 class="page-title">Source: lib/vm/logical-shift.js</h1>
 
     
 
@@ -27,7 +27,7 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/*
- *  MIPS-Simulator : types.js [Checks for data types]
+ *  MIPS-Stimulator : logical-shift.js [Shift Logic submodule for VM]
  *  Copyright (C)  2017  Progyan Bhattacharya, Bytes Club
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -46,40 +46,42 @@
 
 "use strict";
 
-/** function: checkType
- * @desc Type Checking of Token against Given Type Definition
- * @param  {string} token - Token to be Parsed
- * @param  {string} type  - Data Type Referred by Token
- * @return {boolean} True iff Token is of Valid Data Type
+/** function: logicalShift
+ * @desc Performs logical SHIFT Operation Inside Virtual Machine
+ * @param {Object} item - Operand Details and Arguments
+ * @param {Number} i    - Index of The Instrcution
  */
-const checkType = (token, type) => {
-    if (typeof type !== "string") {
-        throw new TypeError("type is expected to be a string.");
-    }
-
-    const LabelRegex    = /\w+:/i,
-          RegisterRegex = /\$\w+/;
-
-    switch (type) {
-        case "label": {
-            return LabelRegex.test(token);
+const logicalShift = function (item, i) {
+    switch (item.type) {
+        case "Left": {
+            const [ dest, src, imm ] = item.argument;
+            const valr = this.valueFromRegister(src, i);
+            const vali = Number(imm);
+            if (isNaN(vali)) {
+                console.error(`Type Error: Invalid value found at ${i}`);
+                process.exit(4);
+            }
+            this.loadOnRegister(dest, parseInt(valr &lt;&lt; vali, 10), i);
+            break;
         }
-        case "Label": {
-            return token.trim().length > 0;
+        case "Right": {
+            const [ dest, src, imm ] = item.argument;
+            const valr = this.valueFromRegister(src, i);
+            const vali = Number(imm);
+            if (isNaN(vali)) {
+                console.error(`Type Error: Invalid value found at ${i}`);
+                process.exit(4);
+            }
+            this.loadOnRegister(dest, parseInt(valr >>> vali, 10), i);
+            break;
         }
-        case "Integer": {
-            return !isNaN(Number(token));
-        }
-        case "Register": {
-            return RegisterRegex.test(token);
-        }
-        default: {
-            throw new ValueError("invalid type specified.")
-        }
+        default:
+            console.error(`Error: Invalid ALU instrcution found at ${i}`);
+            process.exit(4);
     }
 };
 
-module.exports = checkType;
+module.exports = logicalShift;
 </code></pre>
         </article>
     </section>

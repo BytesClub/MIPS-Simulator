@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: lib/types.js</title>
+    <title>JSDoc: Source: lib/vm/store.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: lib/types.js</h1>
+    <h1 class="page-title">Source: lib/vm/store.js</h1>
 
     
 
@@ -27,7 +27,7 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/*
- *  MIPS-Simulator : types.js [Checks for data types]
+ *  MIPS-Stimulator : move.js [Move submodule for VM]
  *  Copyright (C)  2017  Progyan Bhattacharya, Bytes Club
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -46,40 +46,38 @@
 
 "use strict";
 
-/** function: checkType
- * @desc Type Checking of Token against Given Type Definition
- * @param  {string} token - Token to be Parsed
- * @param  {string} type  - Data Type Referred by Token
- * @return {boolean} True iff Token is of Valid Data Type
+/** function: store
+ * @desc Performs Store Operation Inside Virtual Machine
+ * @param {Object} item - Operand Details and Arguments
+ * @param {Number} i    - Index of The Instrcution
  */
-const checkType = (token, type) => {
-    if (typeof type !== "string") {
-        throw new TypeError("type is expected to be a string.");
-    }
-
-    const LabelRegex    = /\w+:/i,
-          RegisterRegex = /\$\w+/;
-
-    switch (type) {
-        case "label": {
-            return LabelRegex.test(token);
-        }
-        case "Label": {
-            return token.trim().length > 0;
-        }
-        case "Integer": {
-            return !isNaN(Number(token));
-        }
+const store = function (item, i) {
+    switch (item.type) {
         case "Register": {
-            return RegisterRegex.test(token);
+            const [ src, dest, ofs ] = item.argument;
+            const value  = this.valueFromRegister(src, i);
+            const offset = typeof ofs !== "undefined" ?
+                           Number(ofs) :
+                           0;
+            const addr   = Number(this.valueFromRegister(dest, i));
+            const target = offset !== 0 ?
+                           addr + Number(offset) :
+                           addr;
+            this.memory(target, value, i);
+            break;
         }
-        default: {
-            throw new ValueError("invalid type specified.")
+        case "Immidiate": {
+            const [ value, dest ] = item.argument;
+            this.memory(dest, value, i);
+            break;
         }
+        default:
+            console.error(`Error: Invalid store statement found at ${i}`);
+            process.exit(4);
     }
 };
 
-module.exports = checkType;
+module.exports = store;
 </code></pre>
         </article>
     </section>

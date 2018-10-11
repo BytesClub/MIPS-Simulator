@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: lib/types.js</title>
+    <title>JSDoc: Source: lib/vm/divide.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: lib/types.js</h1>
+    <h1 class="page-title">Source: lib/vm/divide.js</h1>
 
     
 
@@ -27,7 +27,7 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/*
- *  MIPS-Simulator : types.js [Checks for data types]
+ *  MIPS-Stimulator : divide.js [Divider submodule for VM]
  *  Copyright (C)  2017  Progyan Bhattacharya, Bytes Club
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -46,40 +46,28 @@
 
 "use strict";
 
-/** function: checkType
- * @desc Type Checking of Token against Given Type Definition
- * @param  {string} token - Token to be Parsed
- * @param  {string} type  - Data Type Referred by Token
- * @return {boolean} True iff Token is of Valid Data Type
+/** function: divide
+ * @desc Performs Division Operation Inside Virtual Machine
+ * @param {Object} item - Operand Details and Arguments
+ * @param {Number} i    - Index of The Instrcution
  */
-const checkType = (token, type) => {
-    if (typeof type !== "string") {
-        throw new TypeError("type is expected to be a string.");
-    }
-
-    const LabelRegex    = /\w+:/i,
-          RegisterRegex = /\$\w+/;
-
-    switch (type) {
-        case "label": {
-            return LabelRegex.test(token);
-        }
-        case "Label": {
-            return token.trim().length > 0;
-        }
-        case "Integer": {
-            return !isNaN(Number(token));
-        }
-        case "Register": {
-            return RegisterRegex.test(token);
-        }
-        default: {
-            throw new ValueError("invalid type specified.")
-        }
-    }
+const divide = function (item, i) {
+   switch (item.type) {
+       case "Register": {
+           const [ src1, src2 ] = item.argument;
+           const value1 = this.valueFromRegister(src1, i);
+           const value2 = this.valueFromRegister(src2, i);
+           this.loadOnRegister("$lo", parseInt(value1 / value2, 10), i);
+           this.loadOnRegister("$hi", parseInt(value1 % value2, 10), i);
+           break;
+       }
+       default:
+           console.error(`Error: Invalid ALU instrcution found at ${i}`);
+           process.exit(4);
+   }
 };
 
-module.exports = checkType;
+module.exports = divide;
 </code></pre>
         </article>
     </section>
