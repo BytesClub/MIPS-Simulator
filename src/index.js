@@ -1,5 +1,5 @@
 /*
- *  MIPS-Stimulator : index.js [Export module for MIPS-Stimulator]
+ *  MIPS-Simulator : index.js [Export module for MIPS-Stimulator]
  *  Copyright (C)  2017  Progyan Bhattacharya, Bytes Club
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -26,17 +26,21 @@ const Loader = require("../lib/loader"),
 
 /** class: Simulator
  * @desc MIPS Simulator Definitions
- * @param {object}    props   - Properties of The Simulator
- * @prop {string}     infile  - Input File Containing MIPS Program
- * @prop {string}     outfile - Output File Containing Binary/Abstract Syntax Tree
- * @prop {FileStream} stdin   - File Stream that Will be Used as Standard Input
- * @prop {FileStream} stdout  - File Stream that Will be Used as Standard Output
- * @prop {object}     flag    - Command Line Arguments as Configuration Object
+ * @param {string}     infile  - Input File Containing MIPS Program
+ * @param {string}     outfile - Output File Containing Binary/Abstract Syntax Tree
+ * @param {FileStream} stdin   - File Stream that Will be Used as Standard Input
+ * @param {FileStream} stdout  - File Stream that Will be Used as Standard Output
+ * @param {object}     flag    - Command Line Arguments as Configuration Object
+ * @prop  { Loader }   loader  - Loads File Content into Main Memory
+ * @prop  { Store }    store   - Saves The AST into Target File
+ * @prop  { Lexer }    lexer   - Generate Tokens from Instructions
+ * @prop  { Parser }   parser  - Parse Tokens and Create AST
+ * @prop  { VM }       vm      - Virtual Machine that Runs The Program
+ * @prop  { AST }      object  - Abstract Syntaxt Tree of The Program
  */
 class Simulator extends Object {
-    constructor(props) {
-        super(props);
-        const { infile, outfile, stdin, stdout, flag } = props;
+    constructor({ infile, outfile, stdin, stdout, flag }) {
+        super();
 
         // House-keeping
         if (typeof infile === "undefined" || infile === null
@@ -56,7 +60,7 @@ class Simulator extends Object {
         this.run     = this.run.bind(this);
     }
 
-    /**
+    /** method: compile
      * @desc Compilation Procedure for The Simulator
      * @prop { Loader } loader - Loads File Content into Main Memory
      * @prop { Lexer }  lexer  - Generate Tokens from Instructions
@@ -83,7 +87,7 @@ class Simulator extends Object {
         store.save(parse);
     }
 
-    /**
+    /** method: run
      * @desc Execution Procedure for The Simulator
      * @prop { VM }  vm      - Virtual Machine that Runs The Program
      * @prop { AST } object  - Abstract Syntaxt Tree of The Program

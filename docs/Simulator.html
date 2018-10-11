@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>Simulator<span class="signature">(props)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>Simulator<span class="signature">(infile, outfile, stdin, stdout, flag)</span><span class="type-signature"></span></h2>
         
             <div class="class-description">class: Simulator</div>
         
@@ -45,7 +45,7 @@
     
 
     
-    <h4 class="name" id="Simulator"><span class="type-signature"></span>new Simulator<span class="signature">(props)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Simulator"><span class="type-signature"></span>new Simulator<span class="signature">(infile, outfile, stdin, stdout, flag)</span><span class="type-signature"></span></h4>
     
 
     
@@ -68,60 +68,6 @@
     
 
 <table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>props</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Properties of The Simulator</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    
-
-<table class="props">
     <thead>
     <tr>
         
@@ -261,6 +207,175 @@
 
 
 
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>loader</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Loader.html">Loader</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Loads File Content into Main Memory</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>store</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Store</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Saves The AST into Target File</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>lexer</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Lexer.html">Lexer</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Generate Tokens from Instructions</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>parser</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Parser</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Parse Tokens and Create AST</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>vm</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">VM</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Virtual Machine that Runs The Program</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>object</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">AST</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Abstract Syntaxt Tree of The Program</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
 <dl class="details">
 
     
@@ -290,7 +405,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_index.js.html">src/index.js</a>, <a href="src_index.js.html#line36">line 36</a>
+        <a href="src_index.js.html">src/index.js</a>, <a href="src_index.js.html#line41">line 41</a>
     </li></ul></dd>
     
 
@@ -399,7 +514,7 @@
             <td class="type">
             
                 
-<span class="param-type">Loader</span>
+<span class="param-type"><a href="Loader.html">Loader</a></span>
 
 
             
@@ -422,7 +537,7 @@
             <td class="type">
             
                 
-<span class="param-type">Lexer</span>
+<span class="param-type"><a href="Lexer.html">Lexer</a></span>
 
 
             
@@ -517,7 +632,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_index.js.html">src/index.js</a>, <a href="src_index.js.html#line66">line 66</a>
+        <a href="src_index.js.html">src/index.js</a>, <a href="src_index.js.html#line70">line 70</a>
     </li></ul></dd>
     
 
@@ -678,7 +793,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_index.js.html">src/index.js</a>, <a href="src_index.js.html#line91">line 91</a>
+        <a href="src_index.js.html">src/index.js</a>, <a href="src_index.js.html#line95">line 95</a>
     </li></ul></dd>
     
 
@@ -722,13 +837,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Simulator.html">Simulator</a></li></ul><h3>Global</h3><ul><li><a href="global.html#checkType">checkType</a></li><li><a href="global.html#isInstruction">isInstruction</a></li><li><a href="global.html#mapToEncoding">mapToEncoding</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Lexer.html">Lexer</a></li><li><a href="Loader.html">Loader</a></li><li><a href="Simulator.html">Simulator</a></li></ul><h3>Global</h3><ul><li><a href="global.html#checkType">checkType</a></li><li><a href="global.html#isInstruction">isInstruction</a></li><li><a href="global.html#mapToEncoding">mapToEncoding</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Oct 11 2018 15:21:01 GMT+0530 (IST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Oct 11 2018 15:57:34 GMT+0530 (IST)
 </footer>
 
 <script> prettyPrint(); </script>

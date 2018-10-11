@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /*
- *  MIPS-Stimulator : cli.js [Provide a command-line interface for users]
+ *  MIPS-Simulator : cli.js [Provide a command-line interface for users]
  *  Copyright (C)  2017  Progyan Bhattacharya, Bytes Club
  *
  *  This program is free software: you can redistribute it and/or modify
