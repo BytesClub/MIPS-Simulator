@@ -30,13 +30,13 @@ const Loader = require("../lib/loader"),
  * @param {string}     outfile - Output File Containing Binary/Abstract Syntax Tree
  * @param {FileStream} stdin   - File Stream that Will be Used as Standard Input
  * @param {FileStream} stdout  - File Stream that Will be Used as Standard Output
- * @param {object}     flag    - Command Line Arguments as Configuration Object
+ * @param {Object}     flag    - Command Line Arguments as Configuration Object
  * @prop  { Loader }   loader  - Loads File Content into Main Memory
  * @prop  { Store }    store   - Saves The AST into Target File
  * @prop  { Lexer }    lexer   - Generate Tokens from Instructions
  * @prop  { Parser }   parser  - Parse Tokens and Create AST
  * @prop  { VM }       vm      - Virtual Machine that Runs The Program
- * @prop  { AST }      object  - Abstract Syntaxt Tree of The Program
+ * @prop  { Array }    object  - Abstract Syntaxt Tree of The Program
  */
 class Simulator extends Object {
     constructor({ infile, outfile, stdin, stdout, flag }) {
@@ -89,8 +89,8 @@ class Simulator extends Object {
 
     /** method: run
      * @desc Execution Procedure for The Simulator
-     * @prop { VM }  vm      - Virtual Machine that Runs The Program
-     * @prop { AST } object  - Abstract Syntaxt Tree of The Program
+     * @prop { VM }    vm      - Virtual Machine that Runs The Program
+     * @prop { Array } object  - Abstract Syntaxt Tree of The Program
      */
     run() {
         const { vm, object } = this;
