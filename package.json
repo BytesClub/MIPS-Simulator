@@ -8,18 +8,19 @@
   },
   "scripts": {
     "test": "node test/test.js",
-    "lint:bin": "eslint bin/",
-    "lint:lib": "eslint lib/",
-    "lint:src": "eslint src/",
-    "lint:test": "eslint test/",
-    "lint": "npm run lint:bin && npm run lint:lib && npm run lint:src"
+    "lint:bin": "eslint bin/**/*.js",
+    "lint:lib": "eslint lib/**/*.js",
+    "lint:src": "eslint src/**/*.js",
+    "lint:test": "eslint test/**/*.js",
+    "lint": "npm run lint:bin && npm run lint:lib && npm run lint:src",
+    "build:docs": "jsdoc lib/*  src/ -d docs"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BytesClub/MIPS-Simulator.git"
   },
-  "engines" : {
-    "node" : ">=6.11.2"
+  "engines": {
+    "node": ">=6.11.2"
   },
   "keywords": [
     "MIPS",
@@ -42,5 +43,8 @@
   "man": [
     "./man/mipc.1"
   ],
-  "homepage": "https://github.com/BytesClub/MIPS-Stimulator#readme"
+  "homepage": "https://github.com/BytesClub/MIPS-Stimulator#readme",
+  "devDependencies": {
+    "jsdoc": "^3.5.5"
+  }
 }

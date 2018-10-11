@@ -1,5 +1,5 @@
 /*
- *  MIPS-Stimulator : test.js [Test module for MIPS-Stimulator]
+ *  MIPS-Simulator : test.js [Test module for MIPS-Stimulator]
  *  Copyright (C)  2017  Progyan Bhattacharya, Bytes Club
  *
  *  This program is free software: you can redistribute it and/or modify

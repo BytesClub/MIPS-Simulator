@@ -1,5 +1,5 @@
 /*
- *  MIPS-Stimulator : cases.js [Test cases for MIPS-Stimulator]
+ *  MIPS-Simulator : cases.js [Test cases for MIPS-Stimulator]
  *  Copyright (C)  2017  Progyan Bhattacharya, Bytes Club
  *
  *  This program is free software: you can redistribute it and/or modify
