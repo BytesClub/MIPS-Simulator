@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: lib/encoding.js</title>
+    <title>JSDoc: Source: lib/types.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: lib/encoding.js</h1>
+    <h1 class="page-title">Source: lib/types.js</h1>
 
     
 
@@ -27,7 +27,7 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/*
- *  MIPS-Stimulator : encoding.js [Provide encoding against keyword]
+ *  MIPS-Stimulator : types.js [Checks for data types]
  *  Copyright (C)  2017  Progyan Bhattacharya, Bytes Club
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -46,25 +46,40 @@
 
 "use strict";
 
-/** function: mapToEncoding
- * @desc Realizes The Encoding Type of a Given String
- * @param  {string} keyword  - MIPS Keyword for Encoding
- * @return {string} Standard Name for Encoding
+/** function: checkType
+ * @desc Type Checking of Token against Given Type Definition
+ * @param  {string} token - Token to be Parsed
+ * @param  {string} type  - Data Type Referred by Token
+ * @return {boolean} True iff Token is of Valid Data Type
  */
-const mapToEncoding = keyword => {
-    if (typeof keyword !== "string") {
-        throw new TypeError("keyword is expected to be a string.");
+const checkType = (token, type) => {
+    if (typeof type !== "string") {
+        throw new TypeError("type is expected to be a string.");
     }
-    switch (keyword.toLowerCase()) {
-        case ".asciiz": {
-            return "ASCII";
+
+    const LabelRegex    = /\w+:/i,
+          RegisterRegex = /\$\w+/;
+
+    switch (type) {
+        case "label": {
+            return LabelRegex.test(token);
         }
-        default:
-            return null;
+        case "Label": {
+            return token.trim().length > 0;
+        }
+        case "Integer": {
+            return !isNaN(Number(token));
+        }
+        case "Register": {
+            return RegisterRegex.test(token);
+        }
+        default: {
+            throw new ValueError("invalid type specified.")
+        }
     }
 };
 
-module.exports = mapToEncoding;
+module.exports = checkType;
 </code></pre>
         </article>
     </section>
