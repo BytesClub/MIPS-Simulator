@@ -16,8 +16,8 @@
 
 A micro assembler and interpreter written for MIPS Assembly Language for education purpose.
 
-## API Documentation
-* ### Installation:
+## Instructions for Users
+* **Installation**:
     * NPM:
     ```
     $ npm install mips-simulator --global
@@ -28,12 +28,14 @@ A micro assembler and interpreter written for MIPS Assembly Language for educati
     $ yarn global add mips-simulator
     ```    
 
-* ### Testing
+* **Usage**
 ```
 $ mipc <assembly source file>
 ```
 
-* ### Report Bug
+* Full Documentation for Development is available at [MIPS-Simulator Documentation Site](https://bytesclub.github.io/MIPS-Simulator/)
+
+## Report Bug
 If you find any mistake or error, please report [Issues](https://github.com/BytesClub/MIPS-Simulator/issues).
 
 ## Legal Notice
