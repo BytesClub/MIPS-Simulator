@@ -13,7 +13,7 @@
     "lint:src": "eslint src/**/*.js",
     "lint:test": "eslint test/**/*.js",
     "lint": "npm run lint:bin && npm run lint:lib && npm run lint:src",
-    "build:docs": "jsdoc lib/*  src/ -d docs"
+    "build:docs": "jsdoc lib/*  src/ -d docs -R README.md"
   },
   "repository": {
     "type": "git",
@@ -43,7 +43,7 @@
   "man": [
     "./man/mipc.1"
   ],
-  "homepage": "https://github.com/BytesClub/MIPS-Stimulator#readme",
+  "homepage": "https://bytesclub.github.io/MIPS-Simulator/",
   "devDependencies": {
     "jsdoc": "^3.5.5"
   }
