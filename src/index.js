@@ -27,16 +27,16 @@ const Loader = require("../lib/loader"),
 /** class: Simulator
  * @desc MIPS Simulator Definitions
  * @param {string}     infile  - Input File Containing MIPS Program
- * @param {string}     outfile - Output File Containing Binary/Abstract Syntax Tree
- * @param {FileStream} stdin   - File Stream that Will be Used as Standard Input
- * @param {FileStream} stdout  - File Stream that Will be Used as Standard Output
+ * @param {string}     outfile - Output File Containing Abstract Syntax Tree
+ * @param {FileStream} stdin   - File Stream to be Used as Standard Input
+ * @param {FileStream} stdout  - File Stream to be Used as Standard Output
  * @param {Object}     flag    - Command Line Arguments as Configuration Object
- * @prop  { Loader }   loader  - Loads File Content into Main Memory
- * @prop  { Store }    store   - Saves The AST into Target File
- * @prop  { Lexer }    lexer   - Generate Tokens from Instructions
- * @prop  { Parser }   parser  - Parse Tokens and Create AST
- * @prop  { VM }       vm      - Virtual Machine that Runs The Program
- * @prop  { Array }    object  - Abstract Syntaxt Tree of The Program
+ * @prop  {Loader}     loader  - Loads File Content into Main Memory
+ * @prop  {Store}      store   - Saves The AST into Target File
+ * @prop  {Lexer}      lexer   - Generate Tokens from Instructions
+ * @prop  {Parser}     parser  - Parse Tokens and Create AST
+ * @prop  {VM}         vm      - Virtual Machine that Runs The Program
+ * @prop  {Array}      object  - Abstract Syntaxt Tree of The Program
  */
 class Simulator extends Object {
     constructor({ infile, outfile, stdin, stdout, flag }) {
