@@ -46,8 +46,8 @@ if (file.indexOf(".s") === -1) {
     exit(1);
 }
 
-const infile = path.join(cwd, file),
-      outfile = path.join(cwd, file.replace(".s", ".out"));
+const infile  = path.isAbsolute(file) ? file : path.join(cwd, file),
+      outfile = infile.replace(".s", ".out");
 
 const simulator = new Simulator({
     infile,
