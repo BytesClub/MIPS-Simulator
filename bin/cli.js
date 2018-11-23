@@ -22,9 +22,8 @@
 
 const Simulator  = require("../src"),
       path       = require("path"),
-      version    = require("../package.json").version;
-
-const cwd        = process.cwd(),
+      version    = require("../package.json").version,
+      cwd        = process.cwd(),
       exit       = process.exit,
       argv       = process.argv,
       helpMsg =
@@ -52,7 +51,7 @@ const infile  = path.isAbsolute(file) ? file : path.join(cwd, file),
 const simulator = new Simulator({
     infile,
     outfile,
-    stdin: process.stdin,
+    stdin:  process.stdin,
     stdout: process.stdout
 });
 

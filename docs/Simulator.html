@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>MIPS Simulator: Class: Simulator</title>
+    <title>MIPS-Simulator: Class: Simulator</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -19,7 +19,7 @@
 
     <h1 class="page-title">Class: Simulator</h1>
 
-
+    
 
 
 
@@ -27,28 +27,28 @@
 <section>
 
 <header>
-
+    
         <h2><span class="attribs"><span class="type-signature"></span></span>Simulator<span class="signature">(infile, outfile, stdin, stdout, flag)</span><span class="type-signature"></span></h2>
-
+        
             <div class="class-description">class: Simulator</div>
-
-
+        
+    
 </header>
 
 <article>
     <div class="container-overview">
+    
+        
 
-
-
-
+    
     <h2>Constructor</h2>
+    
 
-
-
+    
     <h4 class="name" id="Simulator"><span class="type-signature"></span>new Simulator<span class="signature">(infile, outfile, stdin, stdout, flag)</span><span class="type-signature"></span></h4>
+    
 
-
-
+    
 
 
 
@@ -65,142 +65,142 @@
 
 
     <h5>Parameters:</h5>
-
+    
 
 <table class="params">
     <thead>
     <tr>
-
+        
         <th>Name</th>
-
+        
 
         <th>Type</th>
 
+        
 
-
-
+        
 
         <th class="last">Description</th>
     </tr>
     </thead>
 
     <tbody>
-
+    
 
         <tr>
-
+            
                 <td class="name"><code>infile</code></td>
-
+            
 
             <td class="type">
-
-
+            
+                
 <span class="param-type">string</span>
 
 
-
+            
             </td>
 
+            
 
-
-
+            
 
             <td class="description last">Input File Containing MIPS Program</td>
         </tr>
 
-
+    
 
         <tr>
-
+            
                 <td class="name"><code>outfile</code></td>
-
+            
 
             <td class="type">
-
-
+            
+                
 <span class="param-type">string</span>
 
 
-
+            
             </td>
 
+            
 
-
-
+            
 
             <td class="description last">Output File Containing Abstract Syntax Tree</td>
         </tr>
 
-
+    
 
         <tr>
-
+            
                 <td class="name"><code>stdin</code></td>
-
+            
 
             <td class="type">
-
-
+            
+                
 <span class="param-type">FileStream</span>
 
 
-
+            
             </td>
 
+            
 
-
-
+            
 
             <td class="description last">File Stream to be Used as Standard Input</td>
         </tr>
 
-
+    
 
         <tr>
-
+            
                 <td class="name"><code>stdout</code></td>
-
+            
 
             <td class="type">
-
-
+            
+                
 <span class="param-type">FileStream</span>
 
 
-
+            
             </td>
 
+            
 
-
-
+            
 
             <td class="description last">File Stream to be Used as Standard Output</td>
         </tr>
 
-
+    
 
         <tr>
-
+            
                 <td class="name"><code>flag</code></td>
-
+            
 
             <td class="type">
-
-
+            
+                
 <span class="param-type">Object</span>
 
 
-
+            
             </td>
 
+            
 
-
-
+            
 
             <td class="description last">Command Line Arguments as Configuration Object</td>
         </tr>
 
-
+    
     </tbody>
 </table>
 
@@ -211,165 +211,165 @@
 
     <h5 class="subsection-title">Properties:</h5>
 
-
+    
 
 <table class="props">
     <thead>
     <tr>
-
+        
         <th>Name</th>
-
+        
 
         <th>Type</th>
 
+        
 
-
-
+        
 
         <th class="last">Description</th>
     </tr>
     </thead>
 
     <tbody>
-
+    
 
         <tr>
-
+            
                 <td class="name"><code>loader</code></td>
-
+            
 
             <td class="type">
-
-
+            
+                
 <span class="param-type"><a href="Loader.html">Loader</a></span>
 
 
-
+            
             </td>
 
+            
 
-
-
+            
 
             <td class="description last">Loads File Content into Main Memory</td>
         </tr>
 
-
+    
 
         <tr>
-
+            
                 <td class="name"><code>store</code></td>
-
+            
 
             <td class="type">
-
-
+            
+                
 <span class="param-type"><a href="Store.html">Store</a></span>
 
 
-
+            
             </td>
 
+            
 
-
-
+            
 
             <td class="description last">Saves The AST into Target File</td>
         </tr>
 
-
+    
 
         <tr>
-
+            
                 <td class="name"><code>lexer</code></td>
-
+            
 
             <td class="type">
-
-
+            
+                
 <span class="param-type"><a href="Lexer.html">Lexer</a></span>
 
 
-
+            
             </td>
 
+            
 
-
-
+            
 
             <td class="description last">Generate Tokens from Instructions</td>
         </tr>
 
-
+    
 
         <tr>
-
+            
                 <td class="name"><code>parser</code></td>
-
+            
 
             <td class="type">
-
-
+            
+                
 <span class="param-type"><a href="Parser.html">Parser</a></span>
 
 
-
+            
             </td>
 
+            
 
-
-
+            
 
             <td class="description last">Parse Tokens and Create AST</td>
         </tr>
 
-
+    
 
         <tr>
-
+            
                 <td class="name"><code>vm</code></td>
-
+            
 
             <td class="type">
-
-
+            
+                
 <span class="param-type"><a href="VM.html">VM</a></span>
 
 
-
+            
             </td>
 
+            
 
-
-
+            
 
             <td class="description last">Virtual Machine that Runs The Program</td>
         </tr>
 
-
+    
 
         <tr>
-
+            
                 <td class="name"><code>object</code></td>
-
+            
 
             <td class="type">
-
-
+            
+                
 <span class="param-type">Array</span>
 
 
-
+            
             </td>
 
+            
 
-
-
+            
 
             <td class="description last">Abstract Syntaxt Tree of The Program</td>
         </tr>
 
-
+    
     </tbody>
 </table>
 
@@ -378,42 +378,42 @@
 
 <dl class="details">
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="src_index.js.html">src/index.js</a>, <a href="src_index.js.html#line41">line 41</a>
     </li></ul></dd>
+    
 
+    
 
+    
 
-
-
-
-
+    
 </dl>
 
 
@@ -433,36 +433,36 @@
 
 
 
-
+    
     </div>
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
+    
         <h3 class="subsection-title">Methods</h3>
 
+        
+            
 
+    
 
-
-
-
-
+    
     <h4 class="name" id="compile"><span class="type-signature"></span>compile<span class="signature">()</span><span class="type-signature"></span></h4>
+    
 
-
-
+    
 
 
 
@@ -484,119 +484,119 @@
 
     <h5 class="subsection-title">Properties:</h5>
 
-
+    
 
 <table class="props">
     <thead>
     <tr>
-
+        
         <th>Name</th>
-
+        
 
         <th>Type</th>
 
+        
 
-
-
+        
 
         <th class="last">Description</th>
     </tr>
     </thead>
 
     <tbody>
-
+    
 
         <tr>
-
+            
                 <td class="name"><code>loader</code></td>
-
+            
 
             <td class="type">
-
-
+            
+                
 <span class="param-type"><a href="Loader.html">Loader</a></span>
 
 
-
+            
             </td>
 
+            
 
-
-
+            
 
             <td class="description last">Loads File Content into Main Memory</td>
         </tr>
 
-
+    
 
         <tr>
-
+            
                 <td class="name"><code>lexer</code></td>
-
+            
 
             <td class="type">
-
-
+            
+                
 <span class="param-type"><a href="Lexer.html">Lexer</a></span>
 
 
-
+            
             </td>
 
+            
 
-
-
+            
 
             <td class="description last">Generate Tokens from Instructions</td>
         </tr>
 
-
+    
 
         <tr>
-
+            
                 <td class="name"><code>parser</code></td>
-
+            
 
             <td class="type">
-
-
+            
+                
 <span class="param-type"><a href="Parser.html">Parser</a></span>
 
 
-
+            
             </td>
 
+            
 
-
-
+            
 
             <td class="description last">Parse Tokens and Create AST</td>
         </tr>
 
-
+    
 
         <tr>
-
+            
                 <td class="name"><code>store</code></td>
-
+            
 
             <td class="type">
-
-
+            
+                
 <span class="param-type"><a href="Store.html">Store</a></span>
 
 
-
+            
             </td>
 
+            
 
-
-
+            
 
             <td class="description last">Saves The AST into Target File</td>
         </tr>
 
-
+    
     </tbody>
 </table>
 
@@ -605,42 +605,42 @@
 
 <dl class="details">
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="src_index.js.html">src/index.js</a>, <a href="src_index.js.html#line70">line 70</a>
     </li></ul></dd>
+    
 
+    
 
+    
 
-
-
-
-
+    
 </dl>
 
 
@@ -660,16 +660,16 @@
 
 
 
+        
+            
 
+    
 
-
-
-
-
+    
     <h4 class="name" id="run"><span class="type-signature"></span>run<span class="signature">()</span><span class="type-signature"></span></h4>
+    
 
-
-
+    
 
 
 
@@ -691,73 +691,73 @@
 
     <h5 class="subsection-title">Properties:</h5>
 
-
+    
 
 <table class="props">
     <thead>
     <tr>
-
+        
         <th>Name</th>
-
+        
 
         <th>Type</th>
 
+        
 
-
-
+        
 
         <th class="last">Description</th>
     </tr>
     </thead>
 
     <tbody>
-
+    
 
         <tr>
-
+            
                 <td class="name"><code>vm</code></td>
-
+            
 
             <td class="type">
-
-
+            
+                
 <span class="param-type"><a href="VM.html">VM</a></span>
 
 
-
+            
             </td>
 
+            
 
-
-
+            
 
             <td class="description last">Virtual Machine that Runs The Program</td>
         </tr>
 
-
+    
 
         <tr>
-
+            
                 <td class="name"><code>object</code></td>
-
+            
 
             <td class="type">
-
-
+            
+                
 <span class="param-type">Array</span>
 
 
-
+            
             </td>
 
+            
 
-
-
+            
 
             <td class="description last">Abstract Syntaxt Tree of The Program</td>
         </tr>
 
-
+    
     </tbody>
 </table>
 
@@ -766,42 +766,42 @@
 
 <dl class="details">
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="src_index.js.html">src/index.js</a>, <a href="src_index.js.html#line95">line 95</a>
     </li></ul></dd>
+    
 
+    
 
+    
 
-
-
-
-
+    
 </dl>
 
 
@@ -821,12 +821,12 @@
 
 
 
+        
+    
 
+    
 
-
-
-
-
+    
 </article>
 
 </section>
@@ -843,7 +843,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Oct 12 2018 12:03:24 GMT+0530 (IST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Nov 23 2018 11:21:17 GMT+0530 (IST)
 </footer>
 
 <script> prettyPrint(); </script>
